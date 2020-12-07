@@ -5,22 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Lesson;
 use App\Models\Course;
-use App\Http\Requests\CourseRequest;
-use Session;
-use Auth;
 
-class CourseController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($course_id)
     {
-        $courses = DB::table('courses')->paginate(10);
-        return view('admin.course.index', compact('courses'));
+        $course = Course::find($course_id);
+        $lessons = Lesson::where('course_id', $course->id)->latest()->get();
+        return view('admin.lesson.index', compact('lessons', 'course'));
     }
 
     /**
@@ -28,9 +27,10 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($course_id)
     {
-        return view('admin.course.create');
+        $course = Course::find($course_id);
+        return view('admin.lesson.create', compact('course'));
     }
 
     /**
@@ -39,14 +39,9 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CourseRequest $request)
+    public function store(Request $request)
     {
-        $course = new Course;
-        $course->user_id = Auth::user()->id;
-        $course->course_title = $request->course_title;
-        $course->save();
-        Session::flash('created', 'New Course Created Successfully!');
-        return redirect()->route('admin.course.index');
+        //
     }
 
     /**
@@ -68,8 +63,7 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $course = Course::find($id);
-        return view('admin.course.edit', compact('course'));
+        //
     }
 
     /**
@@ -79,13 +73,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $course = Course::find($id);
-        $course->course_title = $request->course_title;
-        $course->update();
-        Session::flash('updated', 'Course Details Updated!');
-        return redirect()->route('admin.course.index');
+        //
     }
 
     /**
@@ -96,9 +86,6 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::find($id);
-        $course->delete();
-        Session::flash('deleted', 'Course Deleted Successfully!');
-        return redirect()->route('admin.course.index');
+        //
     }
 }
