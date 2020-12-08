@@ -11,14 +11,41 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Courses</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.course.index') }}">Courses</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.course.lesson.index', $course->id) }}">Manage Lessons</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">New Lesson</li>
                     </ol>
                 </nav>
             </div>
         </div>
-        <div class="col-7">
-            <div class="text-right upgrade-btn">
-                <a href="{{ route('admin.course.create') }}" class="btn btn-danger text-white"><i class="mdi mdi-plus"></i> Add New Course</a>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="Title">Lesson Title</label>
+                                <input type="text" name="lesson_title" class="form-control" placeholder="Lesson Title" required value="{{ old('lesson_title') }}" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="Content">Lesson Content</label>
+                                <textarea name="lesson_content" cols="30" rows="10" class="form-control" required>{{ old('lesson_content') }}</textarea>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="VideoURL">Upload Video</label>
+                                <input type="file" name="video_url" required class="form-control" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="submit" class="btn btn-success btn-block mt-4" value="Save" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
