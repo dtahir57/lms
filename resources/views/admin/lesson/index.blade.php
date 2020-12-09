@@ -27,6 +27,15 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
+            @if(session('created'))
+                <li class="alert alert-success">{{ session('created') }}</li>
+            @endif
+            @if(session('updated'))
+                <li class="alert alert-success">{{ session('updated') }}</li>
+            @endif
+            @if(session('deleted'))
+                <li class="alert alert-success">{{ session('deleted') }}</li>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -34,13 +43,35 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th>#</th>
+                                    <th>Video</th>
                                     <th>Lesson Title</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
-                                    <th>Actions</th>
+                                    <th style="width: 300px;">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                                @foreach($lessons as $lesson)
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ Storage::url($lesson->video_url) }}" type="video/mp4">
+                                            <source src="{{ Storage::url($lesson->video_url) }}" type="video/ogg">
+                                            Your browser does not support the video tag.
+                                            </video>
+                                    </td>
+                                    <td>{{ $lesson->lesson_title }}</td>
+                                    <td>{{ $lesson->created_at }}</td>
+                                    <td>{{ $lesson->updated_at }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.course.lesson.show', [$course->id, $lesson->id]) }}" role="button" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View Lesson</a>
+                                        <a href="{{ route('admin.course.lesson.edit', [$course->id, $lesson->id]) }}" role="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="{{ route('admin.course.lesson.destroy', [$course->id, $lesson->id]) }}" role="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

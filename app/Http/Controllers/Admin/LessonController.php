@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Lesson;
 use App\Models\Course;
+use App\Http\Requests\LessonRequest;
+use Session;
+use Storage;
 
 class LessonController extends Controller
 {
@@ -39,9 +42,16 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LessonRequest $request, $course_id)
     {
-        //
+        $lesson = new Lesson;
+        $lesson->course_id = $course_id;
+        $lesson->lesson_title = $request->lesson_title;
+        $lesson->lesson_content = $request->lesson_content;
+        $lesson->video_url = $request->video_url->store('public/lessons/videos');
+        $lesson->save();
+        Session::flash('created', 'New Lesson Added Successfully!');
+        return redirect()->route('admin.course.lesson.index', $course_id);
     }
 
     /**
@@ -50,9 +60,10 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($course_id, $lesson_id)
     {
-        //
+        $lesson = Lesson::find($lesson_id);
+        return view('admin.lesson.show', compact('lesson', 'course_id'));
     }
 
     /**
@@ -61,9 +72,10 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($course_id, $lesson_id)
     {
-        //
+        $lesson = Lesson::find($lesson_id);
+        return view('admin.lesson.edit', compact('lesson', 'course_id'));
     }
 
     /**
@@ -73,9 +85,15 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LessonRequest $request, $course_id, $lesson_id)
     {
-        //
+        $lesson = Lesson::find($lesson_id);
+        $lesson->lesson_title = $request->lesson_title;
+        $lesson->lesson_content = $request->lesson_content;
+        // $lesson->video_url = $request->video_url->store('public/lessons/videos');
+        $lesson->update();
+        Session::flash('updated', 'Lesson Updated Successfully!');
+        return redirect()->route('admin.course.lesson.index', $course_id);
     }
 
     /**
@@ -84,8 +102,12 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($course_id, $lesson_id)
     {
-        //
+        $lesson = Lesson::find($lesson_id);
+        Storage::delete($lesson->video_url);
+        $lesson->delete();
+        Session::flash('deleted', 'Lesson Deleted Successfully!');
+        return redirect()->route('admin.course.lesson.index', $course_id);
     }
 }

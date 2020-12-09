@@ -1,0 +1,838 @@
+/* Extra small devices (phones, 768px and down) */
+@media only screen and (max-width: 768px) {
+	
+	/* Navbar */
+	.nav-item.active .nav-link:before {
+		content: "";
+		position: absolute;
+		width: 30px;
+		padding-top: 20px;
+		border-bottom: 2px solid var(--accent-clr);
+		border-radius: 2px;
+		bottom: unset;
+	}
+	/* Navbar End*/
+	
+	/* Checkout */
+	#checkout .checkout-banner{
+		background-image: none;
+	}
+
+	#checkout .checkout-banner .checkout-text{
+		margin-top:20%; 
+	}
+
+	#checkout .checkout-text h1{
+		font-size: 36px
+	}
+
+	#checkout .checkout-details{
+		margin:-200px 20px 100px 20px;
+		padding: 0 10px;
+	}
+
+	#checkout .checkout-banner .checkout-text p{
+		width: 90%;
+	}
+
+	#checkout .checkout-details .form-details .pricing-mobile .pricing-values-mobile p{
+		font-size: 12px;
+	}
+
+	#checkout .checkout-details .pricing-wrapper{
+		display: none;
+	}
+
+	#checkout .checkout-details .form-details .pricing-mobile{
+		display: block;
+	}
+
+	/* Checkout End*/
+
+	/* Footer */
+	.footer h3{
+		font-size: 16px;
+	}
+
+	.footer .ftr-content .ftr-social{
+		justify-content: center !important;
+	}
+
+	.footer .ftr-credits{
+		background-color: rgba(255,255,255,0);
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+
+	.footer .ftr-credits-inner{
+		display: flex;
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+
+	.footer .ftr-credits-inner>:first-child li:nth-of-type(3) {
+		display: none !important;
+	}
+
+	.footer .ftr-credits-inner>:not(:first-child){
+		display: none;
+	}
+
+	.footer .important-links{
+		display: block;
+	}
+	/* Footer End*/
+
+	/* FAQ */
+	#faq-area .faq-banner .faq-text p{
+		width: 90%;
+		color: #3F4244;
+	}
+
+	#faq-area .faq-details{
+		padding: 50px 0;
+		margin-top: -200px;
+	}
+
+	#faq-area .faq-details{
+		padding: 50px 0;
+		margin: -200px 20px 0px 20px;
+		border-radius: 30px;
+	}
+
+	.card .card-header a {
+		font-size: 14px;
+	}
+
+	.card.two .card-body p{
+		font-size: 12px;
+	}
+	/* FAQ END*/
+
+	/* Profile Page */
+	.main-content{
+		border-top: none;
+		margin-top:10px;
+		font-size: 14px;
+	}
+
+	.main-content #left-sidebar, .main-content #right-sidebar{
+		padding-top: 40px;
+	}
+
+	.main-content #left-sidebar{
+		border-right: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+	}
+
+	.main-content #right-sidebar{
+		padding-left: 15px;
+	}
+
+	.main-content #right-sidebar .icon-bg {
+		background-color: rgba(0, 123, 204, 0.07);
+		border-radius: 50px;
+		height: 65px;
+		width: 65px;
+		margin-right: 10px;
+	}
+
+	.main-content #right-sidebar a.primary{
+		font-size: 12px;
+	}
+
+	.main-content #right-sidebar .grey{
+		font-size: 12px;
+	}
+
+	.main-content #right-sidebar .update-info-btn{
+		padding-left: 10%;
+		padding-right: 10%;
+		float: none;
+		width: 100%;
+	}
+	/*Profile Page End*/
+
+	/* Modules Page */
+	.above-progress-line h5{
+		font-size: 14px;
+	}
+	.above-progress-line h6{
+		font-size: 12px;
+	}
+	/*Modules Page End*/
+
+	/* Home page */
+
+    #homepage-banner .change-order{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+	#discover-area .text-area{
+		margin: 30px 0;
+	}
+
+	#discover-area button{
+		width: 100%;
+	}
+
+	#sublease-area .area-1{
+		margin-top: 20px;
+	}
+
+	#sublease-area .area-1, #sublease-area .area-2{
+		height: auto;
+		position: relative;
+	}
+
+	#sublease-area .area-2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	#sublease-area .area-1 .area-1-innner{
+		position: relative;
+	}
+
+	/* Video Page */
+	.main-module-number{
+        font-size: 14px;
+        padding-bottom: 0 !important;
+    }
+
+    .main-module-title{
+        font-size: 16px;
+    }
+    
+    .hide-on-mobile{
+        display: none !important;
+    }
+    
+    .main-module-desc{
+        font-size: 14px;
+        color: #A1A1A1;
+    }
+    
+    .sub-module-wrapper h3{
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .sub-module-wrapper>div>div>p{
+        font-size: 12px;
+        color: #A1A1A1;
+        overflow: hidden;
+        line-height: 1.5;
+        height: 38px;
+        margin-bottom: 0;
+    }
+    
+    .sub-module-wrapper>:nth-child(1){
+        padding-right: 0 !important;
+    }
+    
+    .hide-on-large{
+        display: flex !important;
+    }
+    
+    .middle>img{
+        width: 30px;
+    }
+    
+    .comment-section-desc{
+        color: #A1A1A1;
+        font-size: 14px;
+        overflow: hidden;
+        line-height: 1.5;
+        height: 38px;
+        margin-bottom: 0;
+    }
+    
+    .comment-write-block textarea{
+        max-height: 150px;
+    }
+    
+    .comment-write-block button{
+        width: 100%;
+    }
+    
+    .comments-container .col-2 img{
+        max-width: 50px !important;
+    }
+    
+    .comments-container .col-2{
+        padding-right: 0;
+    }
+    
+    .show-on-mobile{
+        display: block !important;
+    }
+    
+    .mobile-comment-author{
+        font-size: 16px;
+    }
+    
+    .mobile-comment-single{
+        padding-bottom: 20px;
+    }
+	/* Video Page End*/
+
+	/* Training Page */
+	.t-hero{
+        padding: 60px 20px !important;
+    }
+    .t-hero-p{
+        max-width: 100% !important;
+        font-size: 12px;
+    }
+    .t-hero-h1{
+        font-size: 32px;
+    }
+    .btn.btn-primary.float-none{
+        width: 100% !important;
+    }
+    .modules-desktop{
+        display: none;
+    }
+    .testimonial-section{
+        display: none;
+    }
+    .testimonials-for-tab{
+        display: none;
+    }
+    .package-section-header{
+        text-align: center;
+    }
+    .pricing-table-large{
+        display: none;
+    }
+    .package-card{
+        width: 100%;
+        border: 0;
+    }
+    .package-check-mark{
+        font-size: 12px;
+        background-color: #35DB88 !important;;
+    }
+    .package-card .card-header{
+        background-color: var(--primary-clr);
+        color: white;
+        padding: 30px 30px;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+    .package-card .card-header h6{
+        font-size: 26px;
+        padding-top: 10px;
+    }
+    .not-included-in-pkg i{
+        visibility: hidden;
+    }
+    .not-included-in-pkg a{
+        color: dimgrey;
+        text-decoration: line-through !important;
+    }
+    .package-card .card-body{
+        border-left: 1px solid var(--accent-grey);
+        border-right: 1px solid var(--accent-grey);
+    }
+    .package-card .card-footer{
+        background-color: white;
+        border: 1px solid var(--accent-grey);
+        border-top: 0;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .package-card .card-footer .btn.btn-primary{
+        margin-bottom: 30px;
+    }
+    .mobile-slide{
+        max-width: 300px;
+    }
+    .mobile-slider-section{
+        padding-bottom: 50px;
+    }
+
+    .bottom-page-cta{
+        margin-top: 50px;
+        background-image: url(../img/training/bottom-cta-bg.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bottom-page-cta .container{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: unset;
+        text-align: center;
+
+    }
+    .cta-button{
+        float: none;
+        width: 90%;
+        margin-top: 30px;
+    }
+    .cta-text{
+        font-size: 18px;
+    }
+    .cta-img{
+        display: block !important;
+    }
+
+
+    .modules-tab{
+        margin-bottom: 50px;
+    }
+    .module-single-tab .card{
+        border-radius: 30px;
+        border-color: #E9E9E9;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+    .module-single-tab .card-title{
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+    }
+    .module-single-tab .card-header{
+        background-color: transparent;
+        border: 0;
+        padding-left: 40px;
+        padding-right: 20px;
+
+    }
+    .module-single-tab .card-body{
+        padding-bottom: 0;
+        font-size: 14px;
+    }
+    .fa.fa-chevron-down{
+        color: lightgrey;
+    }
+    .video-slider-desktop{
+        display: none !important;
+    }
+    .img-module-mobile{
+        position: absolute;
+        background-color: white;
+        z-index: 1;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid var(--accent-grey);
+        top: -50px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block !important;
+    }
+    .space-mobile{
+        display: block !important;
+        visibility: hidden;
+        margin-top: 40px;
+    }
+    .module-single-tab .card{
+        position: relative;
+        margin-bottom: 100px;
+    }
+	/* Training Page End */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+	/* Navbar */
+	.nav-item.active .nav-link:before {
+		content: "";
+		position: absolute;
+		width: 30px;
+		padding-top: 20px;
+		border-bottom: 2px solid var(--accent-clr);
+		border-radius: 2px;
+		bottom: unset;
+	}
+
+	.navbar .dropdown.border-left{
+		border: none !important;
+		padding-left: 0 !important;
+	}
+
+	/* Navbar End*/
+
+	/* Homepage */
+    #homepage-banner .change-order{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+	#discover-area p{
+		margin-bottom: 0px;
+		font-size: 14px;
+	}
+
+	#sublease-area .area-1{
+		margin-top: 20px;
+	}
+
+	#sublease-area .area-1, #sublease-area .area-2{
+		height: auto;
+		position: relative;
+	}
+
+	#sublease-area .area-2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	#sublease-area .area-1 .area-1-innner{
+		position: relative;
+	}
+	/* Homepage End*/
+
+	/* Checkout */
+	#checkout .checkout-details .form-details{
+		padding: 0 50px;
+	}
+
+	#checkout .checkout-details{
+		padding: 0;
+		margin: -250px 50px 100px 50px;
+	}
+
+	#checkout .checkout-details .form-details .pricing-mobile .pricing-values-mobile p{
+		font-size: 14px;
+	}
+
+	#checkout .checkout-details .pricing-wrapper{
+		display: none;
+	}
+
+	#checkout .checkout-details .form-details .pricing-mobile{
+		display: block;
+	}
+	/* Checkout End*/
+
+	/* FAQ */
+	#faq-area .faq-details{
+		padding: 50px 0;
+		margin: -200px 50px 0px 50px;
+		border-radius: 15px;
+	}
+	/* FAQ END*/
+
+	/* Footer */
+	.footer {
+		background-size: contain;
+		background-position: top;
+		background-repeat: no-repeat;
+	}
+	.ftr-content{
+		padding-top: 50px;
+		padding-bottom: 30px;
+	}
+	.footer .container-lg{
+		max-width: 90% !important;
+	}
+	.ftr-content>:first-child{
+		padding-bottom: 50px;
+	}
+	.footer .ftr-credits{
+		background-color: rgba(255,255,255,0);
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+	.ftr-credits-inner{
+		display: flex;
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+	.ftr-credits-inner>:last-child a{
+		font-size: 16px;
+		letter-spacing: 1px;
+	}
+	.ftr-credits-inner>:first-child .white-txt-70p{
+		color: rgba(255,255,255,0.4);
+	}
+	.ftr-credits-inner>:first-child li:nth-of-type(3) {
+		display: none !important;
+	}
+	.ftr-credits-inner>:last-child{
+		margin-bottom: 20px;
+	}
+	.ftr-credits-inner>:first-child li:not(:last-child)::after{
+		content: "|";
+		color: rgba(255,255,255,0.4) !important;
+		padding-right: 10px;
+		font-size: 14px;
+	}
+	/* Footer End*/
+
+	/* Profile Page */
+	.main-content{
+		border-top: none;
+		margin-top:10px;
+	}
+
+	.main-content #left-sidebar, .main-content #right-sidebar{
+		padding-top: 40px;
+	}
+
+	.main-content #left-sidebar{
+		border-right: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+	}
+
+	.main-content #right-sidebar{
+		padding-left: 15px;
+	}
+
+	.main-content #right-sidebar .update-info-btn{
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	/* Profile Page End*/
+
+	/* Video Page */
+	.main-module-number{
+        font-size: 16px;
+        padding-bottom: 0 !important;
+    }
+
+    .main-module-title{
+        font-size: 18px;
+    }
+    
+    .hide-on-mobile{
+        display: none !important;
+    }
+    
+    .comments-container.hide-on-mobile{
+        display: block !important;
+    }
+    
+    .main-module-desc{
+        font-size: 14px;
+        color: #A1A1A1;
+    }
+    
+    .sub-module-wrapper h3{
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .sub-module-wrapper>div>div>p{
+        font-size: 12px;
+        color: #A1A1A1;
+        overflow: hidden;
+        line-height: 1.5;
+        height: 38px;
+        margin-bottom: 0;
+    }
+
+    .sub-module-wrapper>:nth-child(1){
+        padding-right: 0 !important;
+    }
+    
+    .show-on-tab{
+        display: flex !important;
+    }
+    
+    .show-on-tab .text-muted{
+        color: #A1A1A1 !important;
+    }
+    
+    .middle>img{
+        width: 30px;
+    }
+    
+    .comment-section-desc{
+        color: #A1A1A1;
+        font-size: 14px;
+        overflow: hidden;
+        line-height: 1.5;
+        height: 38px;
+        margin-bottom: 0;
+    }
+    
+    .comment-write-block textarea{
+        max-height: 150px;
+    }
+    
+    .comment-write-block button{
+        width: 100%;
+    }
+
+    .comments-container .col-10 h5{
+        font-size: 18px;
+    }
+    
+    .comments-container .col-10 .d-flex{
+        display: block !important;
+    }
+    
+    .comment-text-single{
+        max-width: 100% !important;
+        padding-top: 10px;
+    }
+    
+    .replied-comments{
+        display: none;
+    }
+    
+    .hide-on-tab{
+        display: none !important;
+    }
+	/* Video Page End*/
+
+	/* Training Page */
+	.t-hero{
+        padding: 60px 50px !important;
+    }
+    .t-hero-p{
+        max-width: 100% !important;
+        font-size: 18px;
+    }
+    .btn.btn-primary.float-none{
+        width: 100% !important;
+    }
+    .video-slider-section{
+        display: none;
+    }
+    .modules-desktop{
+        display: none;
+    }
+    .modules-tab{
+        margin-bottom: 50px;
+    }
+    .module-single-tab .card{
+        border-radius: 30px;
+        border-color: var(--accent-grey);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+    .module-single-tab .card-title{
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+    }
+    .module-single-tab .card-header{
+        background-color: transparent;
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+
+    }
+    .module-single-tab .card-body{
+        padding-bottom: 0;
+    }
+    .fa.fa-chevron-down{
+        color: lightgrey;
+    }
+
+    .testimonial-section{
+        display: none;
+    }
+    .bottom-page-cta{
+
+        background-position-x: calc(100% - 20px), 0px;
+    }
+
+    .bottom-page-cta .container{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 0;
+
+    }
+    .cta-button{
+        float: none;
+        margin-top: 30px;
+        width: auto;
+    }
+    .cta-text{
+        width: 80%;
+        font-size: 16px;
+    }
+    .mobile-slider-section{
+        display: none;
+    }
+    .testimonial-card {
+        max-width: 90%;
+    }
+
+    .pricing-table-small.hide-on-desktop{
+        display: none !important;
+    }
+    .img-module-mobile{
+        position: absolute;
+        background-color: white;
+        z-index: 1;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid var(--accent-grey);
+        top: -50px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block !important;
+    }
+    .space-mobile{
+        display: block !important;
+        visibility: hidden;
+        margin-top: 40px;
+    }
+    .module-single-tab .card{
+        position: relative;
+        margin-bottom: 100px;
+    }
+	/* Training Page End*/
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+	#checkout .checkout-details{
+		padding: 0px;
+	}
+
+	#checkout .checkout-details .form-details{
+		padding: 0px 100px;
+	}	
+
+	#discover-area p{
+		font-size: 16px;
+	}
+
+	.hide-on-large{
+        display: none !important;
+    }
+
+    .hide-on-desktop{
+        display: none!important;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	#discover-area p{
+		font-size: 18px;
+	}
+}

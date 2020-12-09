@@ -24,7 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (Auth::user()->hasRole('Super_User')) {
+            return view('home');
+        } else {
+            // 
+        }
     }
 
     public function logout()

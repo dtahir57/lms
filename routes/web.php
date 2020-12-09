@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => 'auth', 'role:Super_User', 'prefix' => 'admin'], function () {
     /**
      * Starting Routes For Admin\CourseController
      */
@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('lessons', 'Admin\LessonController@index')->name('admin.course.lesson.index');
         Route::get('lesson/create', 'Admin\LessonController@create')->name('admin.course.lesson.create');
         Route::post('lesson', 'Admin\LessonController@store')->name('admin.course.lesson.store');
+        Route::get('lesson/show/{id}', 'Admin\LessonController@show')->name('admin.course.lesson.show');
         Route::get('lesson/{id}/edit', 'Admin\LessonController@edit')->name('admin.course.lesson.edit');
         Route::patch('lesson/{id}', 'Admin\LessonController@update')->name('admin.course.lesson.update');
         Route::get('lesson/destroy/{id}', 'Admin\LessonController@destroy')->name('admin.course.lesson.destroy');
@@ -48,5 +49,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     /**
      * Ending Routes For Admin\LessonController
      */
+});
+
+Route::group(['middleware' => 'auth'], function () {
     Route::get('user/logout', 'HomeController@logout')->name('user.logout');
 });
