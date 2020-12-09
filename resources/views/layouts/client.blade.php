@@ -25,23 +25,23 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active">
+							<li class="nav-item {{ (Request::is('/')?'active':'') }}">
 								<a class="nav-link" href="{{ url('/') }}">Home</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="training.html">Training</a>
+							<li class="nav-item {{ (Request::is('training')?'active':'') }}">
+								<a class="nav-link" href="{{ route('training') }}">Training</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="faq.html">FAQ</a>
+							<li class="nav-item {{ (Request::is('faq')?'active':'') }}">
+								<a class="nav-link" href="{{ route('faq') }}">FAQ</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="checkout.html">Contact</a>
+							<li class="nav-item {{ (Request::is('checkout')?'active':'') }}">
+								<a class="nav-link" href="{{ route('checkout') }}">Contact</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Sign In</a>
+							<li class="nav-item {{ (Request::is('login')?'active':'') }}">
+								<a class="nav-link" href="{{ route('login') }}">Sign In</a>
 							</li>
 						</ul>
-						<a role="button" class="btn-signup" href="{{ route('register') }}">Sign Up</a>
+						<a role="button" class="btn-signup" href="">Sign Up</a>
 					</div>
 				</div>
 			</nav>

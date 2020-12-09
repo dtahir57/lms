@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('faq', 'Frontend\FrontendController@faq')->name('faq');
+Route::get('training', 'Frontend\FrontendController@training')->name('training');
+Route::get('checkout', 'Frontend\FrontendController@checkout')->name('checkout');
+
 Route::group(['middleware' => 'auth', 'role:Super_User', 'prefix' => 'admin'], function () {
     /**
      * Starting Routes For Admin\CourseController
