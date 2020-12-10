@@ -37,11 +37,27 @@
 							<li class="nav-item {{ (Request::is('checkout')?'active':'') }}">
 								<a class="nav-link" href="{{ route('checkout') }}">Contact</a>
 							</li>
+							@if(!Auth::user())
 							<li class="nav-item {{ (Request::is('login')?'active':'') }}">
 								<a class="nav-link" href="{{ route('login') }}">Sign In</a>
 							</li>
+							@endif
 						</ul>
-						<a role="button" class="btn-signup" href="">Sign Up</a>
+						@guest
+						<a role="button" class="btn-signup" href="{{ route('checkout') }}">Sign Up</a>
+						@else
+						<div class="dropdown border-left pl-4">
+							<div data-toggle="dropdown" class="align-items-center cursor-hand">
+								<img src="{{ asset('client/assets/img/navbar/profile.png') }}" alt="" class="img-fluid rounded-circle dropdown-profile-img">
+								<span class="px-2">Eugine Riley</span>
+								<i class="fa fa-sort-down"></i>
+							</div>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="{{ route('user_profile') }}">Profile</a>
+								<a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a>
+							</div>
+						</div>
+						@endguest
 					</div>
 				</div>
 			</nav>

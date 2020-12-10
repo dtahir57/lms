@@ -24,6 +24,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('faq', 'Frontend\FrontendController@faq')->name('faq');
 Route::get('training', 'Frontend\FrontendController@training')->name('training');
 Route::get('checkout', 'Frontend\FrontendController@checkout')->name('checkout');
+Route::get('register', function () {
+    return redirect()->route('checkout');
+});
+
+Route::post('user/checkout', 'Frontend\FrontendController@user_checkout')->name('user.checkout');
 
 Route::group(['middleware' => 'auth', 'role:Super_User', 'prefix' => 'admin'], function () {
     /**
@@ -56,5 +61,6 @@ Route::group(['middleware' => 'auth', 'role:Super_User', 'prefix' => 'admin'], f
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('user/profile', 'UserController@user_profile')->name('user_profile');
     Route::get('user/logout', 'HomeController@logout')->name('user.logout');
 });

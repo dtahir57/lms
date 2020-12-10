@@ -27,7 +27,7 @@ class HomeController extends Controller
         if (Auth::user()->hasRole('Super_User')) {
             return view('home');
         } else {
-            // 
+            return redirect()->route('user_profile');
         }
     }
 
