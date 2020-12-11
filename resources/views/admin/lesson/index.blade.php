@@ -55,11 +55,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>
-                                        <video width="320" height="240" controls>
-                                            <source src="{{ Storage::url($lesson->video_url) }}" type="video/mp4">
-                                            <source src="{{ Storage::url($lesson->video_url) }}" type="video/ogg">
-                                            Your browser does not support the video tag.
-                                            </video>
+                                        <iframe src="{{ $lesson->video_url }}" width="360" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                     </td>
                                     <td>{{ $lesson->lesson_title }}</td>
                                     <td>{{ $lesson->created_at }}</td>

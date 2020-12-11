@@ -41,6 +41,10 @@
                                 <textarea name="lesson_content" cols="30" rows="30" class="form-control textarea">{{ $lesson->lesson_content }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
+                              <label for="VideoURL">Video URL</label>
+                              <input type="text" name="video_url" required class="form-control" placeholder="Vimeo Video URL" value="{{ $lesson->video_url }}" />
+                          </div>
+                            <div class="col-md-12 form-group">
                                 <input type="submit" class="btn btn-success btn-block mt-4" value="Update" />
                             </div>
                         </div>

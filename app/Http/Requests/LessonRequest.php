@@ -31,12 +31,13 @@ class LessonRequest extends FormRequest
                 return [
                     'lesson_title' => 'required|string|max:255',
                     'lesson_content' => 'required',
-                    'video_url' => 'required|mimes:mp4,mov,ogg,mkv|max:20000'
+                    'video_url' => 'required|string'
                 ];
             case 'PATCH':
                 return [
                     'lesson_title' => 'required|string|max:255',
                     'lesson_content' => 'required',
+                    'video_url' => 'required|string'
                 ];
             case 'DEFAULT':
                 return [];

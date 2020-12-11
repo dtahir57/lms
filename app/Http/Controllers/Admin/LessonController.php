@@ -48,7 +48,7 @@ class LessonController extends Controller
         $lesson->course_id = $course_id;
         $lesson->lesson_title = $request->lesson_title;
         $lesson->lesson_content = $request->lesson_content;
-        $lesson->video_url = $request->video_url->store('public/lessons/videos');
+        $lesson->video_url = $request->video_url;
         $lesson->save();
         Session::flash('created', 'New Lesson Added Successfully!');
         return redirect()->route('admin.course.lesson.index', $course_id);
@@ -90,7 +90,7 @@ class LessonController extends Controller
         $lesson = Lesson::find($lesson_id);
         $lesson->lesson_title = $request->lesson_title;
         $lesson->lesson_content = $request->lesson_content;
-        // $lesson->video_url = $request->video_url->store('public/lessons/videos');
+        $lesson->video_url = $request->video_url;
         $lesson->update();
         Session::flash('updated', 'Lesson Updated Successfully!');
         return redirect()->route('admin.course.lesson.index', $course_id);

@@ -41,6 +41,10 @@
 							<li class="nav-item {{ (Request::is('login')?'active':'') }}">
 								<a class="nav-link" href="{{ route('login') }}">Sign In</a>
 							</li>
+							@else
+							<li class="nav-item {{ (Request::is('courses')?'active':'') }}">
+								<a href="{{ route('course.index') }}" class="nav-link">Courses</a>
+							</li>
 							@endif
 						</ul>
 						@guest
@@ -49,7 +53,7 @@
 						<div class="dropdown border-left pl-4">
 							<div data-toggle="dropdown" class="align-items-center cursor-hand">
 								<img src="{{ asset('client/assets/img/navbar/profile.png') }}" alt="" class="img-fluid rounded-circle dropdown-profile-img">
-								<span class="px-2">Eugine Riley</span>
+								<span class="px-2">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
 								<i class="fa fa-sort-down"></i>
 							</div>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

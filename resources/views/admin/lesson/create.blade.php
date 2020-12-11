@@ -40,8 +40,8 @@
                                 <textarea name="lesson_content" cols="30" rows="30" class="form-control textarea">{{ old('lesson_content') }}</textarea>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label for="VideoURL">Upload Video</label>
-                                <input type="file" name="video_url" required class="form-control" />
+                                <label for="VideoURL">Video URL</label>
+                                <input type="text" name="video_url" required class="form-control" placeholder="Vimeo Video URL" value="{{ old('video_url') }}" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="submit" class="btn btn-success btn-block mt-4" value="Save" />

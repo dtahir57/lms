@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\UserProfile;
+use App\Models\Course;
+use App\Models\UserEnrollInCourse;
 
 class User extends Authenticatable
 {
@@ -42,5 +44,15 @@ class User extends Authenticatable
     public function user_profile()
     {
         return $this->hasOne(UserProfile::class);
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'user_enroll_in_courses')
+                                    ->using(UserEnrollInCourse::class)
+                                    ->withPivot([
+                                        'created_at',
+                                        'updated_at'
+                                    ]);
     }
 }
