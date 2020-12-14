@@ -9,6 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 use App\Models\UserProfile;
 use App\Models\Course;
 use App\Models\UserEnrollInCourse;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,15 @@ class User extends Authenticatable
                                         'created_at',
                                         'updated_at'
                                     ]);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

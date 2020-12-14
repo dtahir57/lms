@@ -113,74 +113,36 @@
     </div>
     <hr class="invisible large-space">
     <div class="container comments-container hide-on-mobile">
+        @foreach($course->lessons[0]->comments as $comment)
         <div class="row border-bottom pb-4 mb-4">
             <div class="col-2 pr-0">
-                <img src="assets/img/navbar/profile.png" alt="" width="72">
+                <img src="{{ asset('client/assets/img/navbar/profile.png')}}" alt="" width="72">
             </div>
             <div class="col-10 pl-0">
                 <div class="d-flex justify-content-between">
-                    <h5>Johnny Stewart</h5>
-                    <span class="text-muted">20 / 01 / 2019</span>
+                    <h5>{{ $comment->user->fname }} {{ $comment->user->lname }}</h5>
+                    <span class="text-muted">{{ Carbon\Carbon::parse($comment->created_at) }}</span>
                 </div>
                 <div class="comment-text-single">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
-                </div>
-                <div class="comment-respont-links">
-                    <a href="#" class="module-blue pr-5">Like</a>
-                    <a href="#" class="module-blue pr-5">Reply</a>
-                </div>
-            </div>
-        </div>
-        <div class="row border-bottom pb-4 mb-4">
-            <div class="col-2 pr-0">
-                <img src="assets/img/navbar/profile.png" alt="" width="72">
-            </div>
-            <div class="col-10 pl-0">
-                <div class="d-flex justify-content-between">
-                    <h5>Johnny Stewart</h5>
-                    <span class="text-muted">20 / 01 / 2019</span>
-                </div>
-                <div class="comment-text-single">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
-                </div>
-                <div class="comment-respont-links">
-                    <a href="#" class="module-blue pr-5">Like</a>
-                    <a href="#" class="module-blue pr-5">Reply</a>
-                </div>
-            </div>
-        </div>
-        <div class="row border-bottom pb-4 mb-4">
-            <div class="col-2 pr-0">
-                <img src="assets/img/navbar/profile.png" alt="" width="72">
-            </div>
-            <div class="col-10 pl-0">
-                <div class="d-flex justify-content-between">
-                    <h5>Johnny Stewart</h5>
-                    <span class="text-muted">20 / 01 / 2019</span>
-                </div>
-                <div class="comment-text-single">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                    ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
+                    <p>{{ $comment->comment }}</p>
                 </div>
                 <div class="comment-respont-links">
                     <a href="#" class="module-blue pr-5">Like</a>
                     <a href="#" class="module-blue pr-5">Reply</a>
                 </div>
                 <div class="replied-comments">
+                    @foreach($comment->replies as $reply)
                     <div class="row border-bottom py-4 my-4">
                         <div class="col-2 pr-0">
-                            <img src="assets/img/navbar/profile.png" alt="" class="img-fluid" width="72">
+                            <img src="{{ asset('client/assets/img/navbar/profile.png')}}" alt="" class="img-fluid" width="72">
                         </div>
                         <div class="col-10 pl-0">
                             <div class="d-flex justify-content-between">
-                                <h5>Johnny Stewart</h5>
-                                <span class="text-muted">20 / 01 / 2019</span>
+                                <h5>{{ $reply->user->fname }} {{ $reply->user->lname }}</h5>
+                                <span class="text-muted">{{ Carbon\Carbon::parse($reply->created_at) }}</span>
                             </div>
                             <div class="comment-text-single">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
+                                <p>{{ $reply->reply }}</p>
                             </div>
                             <div class="comment-respont-links">
                                 <a href="#" class="module-blue pr-5">Like</a>
@@ -188,47 +150,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row border-bottom py-4 my-4">
-                        <div class="col-2 pr-0">
-                            <img src="assets/img/navbar/profile.png" alt="" class="img-fluid" width="72">
-                        </div>
-                        <div class="col-10 pl-0">
-                            <div class="d-flex justify-content-between">
-                                <h5>Johnny Stewart</h5>
-                                <span class="text-muted">20 / 01 / 2019</span>
-                            </div>
-                            <div class="comment-text-single">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
-                            </div>
-                            <div class="comment-respont-links">
-                                <a href="#" class="module-blue pr-5">Like</a>
-                                <a href="#" class="module-blue pr-5">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row border-bottom py-4 my-4">
-                        <div class="col-2 pr-0">
-                            <img src="assets/img/navbar/profile.png" alt="" class="img-fluid" width="72">
-                        </div>
-                        <div class="col-10 pl-0">
-                            <div class="d-flex justify-content-between">
-                                <h5>Johnny Stewart</h5>
-                                <span class="text-muted">20 / 01 / 2019</span>
-                            </div>
-                            <div class="comment-text-single">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
-                            </div>
-                            <div class="comment-respont-links">
-                                <a href="#" class="module-blue pr-5">Like</a>
-                                <a href="#" class="module-blue pr-5">Reply</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+        @endforeach
         <div class="row border-bottom pb-4 mb-4">
             <div class="col-2 pr-0">
                 <img src="assets/img/navbar/profile.png" alt="" width="72">
