@@ -68,6 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('course/{id}', 'Client\CourseController@show')->name('course.show');
     Route::get('course/{course_id}/lesson/{lesson_id}', 'Client\CourseController@lesson_view')->name('course.lesson_view');
     Route::get('course/enroll/{id}', 'Client\CourseController@enroll')->name('course.enroll');
+    Route::post('comment/{lesson_id}', 'Client\CourseController@comment')->name('lesson.comment');
+    Route::post('reply/{comment_id}', 'Client\CourseController@reply')->name('comment.reply');
     /**
      * Ending Routes For Client\CourseController
      */

@@ -9,6 +9,9 @@ use DB;
 use App\Models\UserEnrollInCourse;
 use Auth;
 use App\Models\Lesson;
+use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
+use App\Models\Reply;
 
 class CourseController extends Controller
 {
@@ -38,5 +41,27 @@ class CourseController extends Controller
         $lesson = Lesson::find($lesson_id);
         $course = Course::find($course_id);
         return view('client.course.lesson_view', compact('lesson', 'course'));
+    }
+
+    public function comment(CommentRequest $request, $lesson_id)
+    {
+        $lesson = Lesson::find($lesson_id);
+        $comment = new Comment;
+        $comment->user_id = Auth::user()->id;
+        $comment->lesson_id = $lesson_id;
+        $comment->comment = $request->comment;
+        $comment->save();
+        return redirect()->back();
+    }
+
+    public function reply(Request $request, $comment_id)
+    {
+        $comment = Comment::find($comment_id);
+        $reply = new Reply;
+        $reply->user_id = Auth::user()->id;
+        $reply->comment_id = $comment_id;
+        $reply->reply = $request->reply;
+        $reply->save();
+        return redirect()->back();
     }
 }
