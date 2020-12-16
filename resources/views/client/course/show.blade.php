@@ -31,6 +31,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @php
+                $enrolled = App\Models\UserEnrollInCourse::where('user_id', Auth::user()->id)->where('course_id', $course->id)->first();
+                @endphp
+                @if($enrolled)
+                <button class="btn btn-secondary mt-3 mb-3" disabled>Enrolled</button>
+                @else
+                <a href="{{ route('course.enroll', $course->id) }}" role="button" class="btn btn-success">Enroll Now</a>
+                @endif
                 <div class="wrapper" id="main-iframe">
                     <iframe src="{{ $course->lessons[0]->video_url }}" width="968" height="720" frameborder="0" allow="autoplay; fullscreen" allowfullscreen id="iframe"></iframe>
                 </div>

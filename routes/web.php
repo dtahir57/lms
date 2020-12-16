@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
     /**
      * Starting Routes For Client\CourseController
      */
-    Route::get('courses', 'Client\CourseController@index')->name('course.index');
+    Route::get('modules', 'Client\CourseController@index')->name('course.index');
     Route::get('course/{id}', 'Client\CourseController@show')->name('course.show');
     Route::get('course/{course_id}/lesson/{lesson_id}', 'Client\CourseController@lesson_view')->name('course.lesson_view');
     Route::get('course/enroll/{id}', 'Client\CourseController@enroll')->name('course.enroll');

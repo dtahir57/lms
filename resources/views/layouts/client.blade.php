@@ -42,8 +42,8 @@
 								<a class="nav-link" href="{{ route('login') }}">Sign In</a>
 							</li>
 							@else
-							<li class="nav-item {{ (Request::is('courses')?'active':'') }}">
-								<a href="{{ route('course.index') }}" class="nav-link">Courses</a>
+							<li class="nav-item {{ (Request::is('modules')?'active':'') }}">
+								<a href="{{ route('course.index') }}" class="nav-link">Modules</a>
 							</li>
 							@endif
 						</ul>
