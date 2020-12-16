@@ -73,6 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
     /**
      * Ending Routes For Client\CourseController
      */
+    Route::post('update_profile', 'UserController@update_profile')->name('user.update_profile');
+    Route::post('update_password', 'UserController@update_password')->name('user.update_password');
     Route::get('user/profile', 'UserController@user_profile')->name('user_profile');
     Route::get('user/logout', 'HomeController@logout')->name('user.logout');
 });

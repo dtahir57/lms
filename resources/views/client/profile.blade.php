@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-12 col-12" id="left-sidebar">
                 <div class="position-relative">
-                    <img src="assets/img/profile/profile-pic.png" alt="" width="175">
+                    <img src="{{ asset('client/assets/img/profile/profile-pic.png') }}" alt="" width="175">
                     <div class="upload-button">
                         <a href=""><i class="p-3 fa fa-camera text-white"></i></a>
                     </div>
@@ -37,13 +37,47 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12" id="right-sidebar">
+                @if (session('password_updated'))
+                    <li class="alert alert-success">{{ session('password_updated') }}</li>
+                @endif
+                @if (session('wrong_pass'))
+                    <li class="alert alert-danger">{{ session('wrong_pass') }}</li>
+                @endif
+                @if (session('profile_updated'))
+                    <li class="alert alert-success">{{ session('profile_updated') }}</li>
+                @endif
                 <div>
                     <h4>Edit My Information</h4>
                     <hr class="invisible">
                     <div>
-                        <input type="email" class="form-control input-12" placeholder="Email">
-                        <input type="password" class="form-control input-12" placeholder="***************">
-                        <button class="btn btn-primary update-info-btn">Update Info</button>
+                        <form action="{{ route('user.update_profile') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="fname" required value="{{ Auth::user()->fname }}" class="form-control input-12" placeholder="First Name" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="lname" required value="{{ Auth::user()->lname }}" class="form-control input-12" placeholder="Last Name" />
+                                </div>
+                            </div>
+                            <input type="email" name="email" required value="{{ Auth::user()->email }}" class="form-control input-12" placeholder="Email">
+                            {{-- <input type="password" class="form-control input-12" placeholder="***************"> --}}
+                            <input type="text" name="phone_number" required value="{{ Auth::user()->phone_number }}" class="form-control input-12" placeholder="Phone Number">
+                            <button type="submit" class="btn btn-primary update-info-btn">Update Info</button>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <h4>Update Password</h4>
+                    <hr class="invisible">
+                    <div>
+                        <form action="{{ route('user.update_password') }}" method="POST">
+                            @csrf
+                            <input type="password" name="old_password" class="form-control input-12" required placeholder="Old Password">
+                            <input type="password" name="new_password" class="form-control input-12" required placeholder="New Password">
+                            <input type="password" name="password_confirmation" class="form-control input-12" required placeholder="Confirm Password">
+                            <button type="submit" class="btn btn-primary update-info-btn">Update Password</button>
+                        </form>
                     </div>
                 </div>
                 <hr class="invisible clearboth">
