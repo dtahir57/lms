@@ -10,6 +10,7 @@ use App\Models\UserProfile;
 use Mail;
 use App\Mail\UserCheckoutMail;
 use Auth;
+use Stripe;
 
 class FrontendController extends Controller
 {
@@ -25,11 +26,13 @@ class FrontendController extends Controller
 
     public function checkout()
     {
+        // dd(config('app.stripe_key'));
         return view('client.checkout');
     }
 
     public function user_checkout(UserRequest $request)
     {
+        Stripe\Stripe::setApiKey(config('app.stripe_secret'));
         $password = $this->generateRandomString(10);
         $user = new User;
         $user->fname = $request->fname;
@@ -48,6 +51,12 @@ class FrontendController extends Controller
         $user->save();
         $user_profile->user_id = $user->id;
         $user_profile->save();
+        Stripe\Charge::create ([
+                "amount" => $request->package * 100,
+                "currency" => "eur",
+                "source" => $request->stripeToken,
+                "description" => "Subscription Payment from Easyloc" 
+        ]);
         $details = array(
             'subject' => 'Login Credentails',
             'body' => 'Below are the login details:',
